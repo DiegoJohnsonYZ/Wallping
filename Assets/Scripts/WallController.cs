@@ -29,8 +29,8 @@ public class WallController : MonoBehaviour
     void Update()
     {
         if (MurosManager.instance.IsHolding) distanceToMove = 0;
-        else distanceToMove = -0.01f;
-        if (MurosManager.instance.IsWallping) distanceToMove = -0.01f * MurosManager.instance.WallpingSpeed;
+        else distanceToMove = MurosManager.instance.GameSpeed;
+        if (MurosManager.instance.IsWallping) distanceToMove = MurosManager.instance.GameSpeed * MurosManager.instance.WallpingSpeed;
         transform.position += new Vector3(0, distanceToMove, 0);
     }
 }
