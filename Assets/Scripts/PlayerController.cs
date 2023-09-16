@@ -38,7 +38,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            StartCoroutine(MoveToPosition(Camera.main.gameObject, new Vector3(Camera.main.transform.position.x, -1f, Camera.main.transform.position.z),0.5f));
+            StartCoroutine(MoveToPosition(Camera.main.gameObject, new Vector3(Camera.main.transform.position.x, -1f, Camera.main.transform.position.z),0.2f));
+            StartCoroutine(MoveToProjection(4, 0.2f));
             MurosManager.instance.IsWallping = true;
             MurosManager.instance.IsHolding = false;
             //print(holdTimer);
@@ -48,12 +49,18 @@ public class PlayerController : MonoBehaviour
             holdTimer = 0;
 
         }
+
+        if (MurosManager.instance.IsWallping)
+        {
+
+        }
         
     }
 
     void StopWallping()
     {
-        StartCoroutine(MoveToPosition(Camera.main.gameObject,new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z),0.5f));
+        StartCoroutine(MoveToPosition(Camera.main.gameObject,new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z),0.2f));
+        StartCoroutine(MoveToProjection(5, 0.2f));
         print("stop wallping");
         MurosManager.instance.IsWallping = false;
         GetComponent<SpriteRenderer>().color = Color.white;
@@ -82,5 +89,38 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    private IEnumerator MoveToScale(GameObject objectToScale, Vector3 newScale, float waitTime)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < waitTime)
+        {
+            objectToScale.transform.localScale = Vector3.Lerp(objectToScale.transform.position, newScale, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+
+            // Yield here
+            yield return null;
+        }
+
+        // Make sure we got there
+        objectToScale.transform.position = newScale;
+        yield return null;
+    }
+
+    private IEnumerator MoveToProjection(float newSize, float waitTime)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < waitTime)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+
+            // Yield here
+            yield return null;
+        }
+
+        // Make sure we got there
+        Camera.main.orthographicSize = newSize;
+        yield return null;
+    }
 
 }
