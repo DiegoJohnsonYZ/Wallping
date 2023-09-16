@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MurosManager : MonoBehaviour
 {
 
     public static MurosManager instance;
 
-    [SerializeField] private GameObject muro;
+    [SerializeField] private GameObject[] walls = Array.Empty<GameObject>();
     [SerializeField] private float timeCounter = 0;
     [SerializeField]private float timeBetweenWalls;
     [SerializeField] private float wallpingSpeed = 3;
@@ -38,7 +38,8 @@ public class MurosManager : MonoBehaviour
         if (timeCounter >= timeBetweenWalls)
         {
             timeCounter = 0;
-            Instantiate(muro, transform);
+            var randomIndex = Random.Range(0, walls.Length);
+            Instantiate(walls[randomIndex], transform);
         }
 
 

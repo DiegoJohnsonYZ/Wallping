@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.size
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[1].x
-      value: 0.01
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[1].y
@@ -21,27 +21,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[2].x
-      value: 0.01
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[2].y
-      value: 0.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[3].x
-      value: 2.5
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[3].y
-      value: 0.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[4].x
-      value: 2.5
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[4].y
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[5].x
@@ -62,7 +62,7 @@ PrefabInstance:
     - target: {fileID: 3109644753637832857, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3621212, guid: f48db38e361c6244e9ff42aa49986a1e, type: 3}
+      objectReference: {fileID: -1490446712, guid: 6e3b57b8d918491429fe7023ed4079aa, type: 3}
     - target: {fileID: 3109644754010188464, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -109,15 +109,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109644754010188470, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Name
-      value: WallContainerBase
+      value: WallContainer_3
       objectReference: {fileID: 0}
     - target: {fileID: 3109644754010188471, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: maskSprite
       value: 
-      objectReference: {fileID: 3621212, guid: f48db38e361c6244e9ff42aa49986a1e, type: 3}
+      objectReference: {fileID: -1490446712, guid: 6e3b57b8d918491429fe7023ed4079aa, type: 3}
     - target: {fileID: 3109644754508353669, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_MaskInteraction
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd858f79af492549b581644b6965b36, type: 3}
