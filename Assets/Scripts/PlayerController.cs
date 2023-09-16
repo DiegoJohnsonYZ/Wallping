@@ -1,15 +1,29 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] private float maxVibrationForce;
+    [SerializeField] private float timeToReachMaxVibrationForce = 2f;
+
+    private float _currentVibrationForce;
     private float holdTimer;
-    // Start is called before the first frame update
+
+    private SpriteRenderer _renderer;
+    private Material _playerMaterial;
+    
+    private readonly int _vibrationForceProp = Shader.PropertyToID("_VibrationForce");
+
+    private void Awake()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+        _playerMaterial = _renderer.material;
+    }
+
     void Start()
     {
         holdTimer = 0;
+        SetMaterialProperties();
     }
 
     // Update is called once per frame
@@ -25,14 +39,15 @@ public class PlayerController : MonoBehaviour
             transform.position += new Vector3(-0.02f, 0, 0);
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            print("space");
-            //holdTimer += Time.deltaTime;
-        }
         if (Input.GetKey(KeyCode.Space) && !MurosManager.instance.IsWallping)
         {
             holdTimer += Time.deltaTime;
+
+            var tVibrationForce = Mathf.InverseLerp(0f, timeToReachMaxVibrationForce, holdTimer);
+            _currentVibrationForce = Mathf.Lerp(0f, maxVibrationForce, tVibrationForce);
+            
+            SetMaterialProperties();
+            
             MurosManager.instance.IsHolding = true;
 
         }
@@ -43,12 +58,19 @@ public class PlayerController : MonoBehaviour
             MurosManager.instance.IsHolding = false;
             //print(holdTimer);
             
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            _renderer.color = Color.blue;
             Invoke("StopWallping", holdTimer*0.4f);
             holdTimer = 0;
-
+            _currentVibrationForce = 0f;
+            
+            SetMaterialProperties();
         }
         
+    }
+
+    private void SetMaterialProperties()
+    {
+        _playerMaterial.SetFloat(_vibrationForceProp, _currentVibrationForce);
     }
 
     void StopWallping()
@@ -56,7 +78,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(MoveToPosition(Camera.main.gameObject,new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z),0.5f));
         print("stop wallping");
         MurosManager.instance.IsWallping = false;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        _renderer.color = Color.white;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
