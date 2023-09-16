@@ -301,6 +301,7 @@ MonoBehaviour:
   wallpingSpeed: 7
   isWallping: 0
   isHolding: 0
+  gameSpeed: -0.01
 --- !u!1 &550164091
 GameObject:
   m_ObjectHideFlags: 0

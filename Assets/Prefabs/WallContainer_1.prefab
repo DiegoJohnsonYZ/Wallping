@@ -16,10 +16,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
-      propertyPath: m_Points.Array.data[1].y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1386981370, guid: cfd858f79af492549b581644b6965b36, type: 3}
       propertyPath: m_Points.Array.data[2].x
       value: 0
       objectReference: {fileID: 0}
@@ -127,5 +123,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 929985516, guid: 6e3b57b8d918491429fe7023ed4079aa, type: 3}
+    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2612499
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.82888
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0361
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd858f79af492549b581644b6965b36, type: 3}
