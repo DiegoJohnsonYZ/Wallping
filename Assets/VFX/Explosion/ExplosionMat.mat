@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VibrationMat
-  m_Shader: {fileID: -6465566751694194690, guid: 4b15b5fd27bfc9240aab74cacd6360f9, type: 3}
+  m_Name: ExplosionMat
+  m_Shader: {fileID: -6465566751694194690, guid: 60c5d6dcd04247740a18854a4266dffb, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -37,9 +37,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _NoiseScale: 100
-    - _Velocity: 6.25
-    - _VibrationForce: 0.023
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
