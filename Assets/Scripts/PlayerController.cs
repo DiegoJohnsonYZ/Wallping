@@ -15,19 +15,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && !MurosManager.instance.IsHolding)
         {
             transform.position += new Vector3(0.02f, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && !MurosManager.instance.IsHolding)
         {
             transform.position += new Vector3(-0.02f, 0, 0);
         }
 
         if (Input.GetKeyDown("space"))
         {
-            print("space");    
+            print("space");
             //holdTimer += Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.Space) && !MurosManager.instance.IsWallping)
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            StartCoroutine(MoveToPosition(Camera.main.gameObject, new Vector3(Camera.main.transform.position.x, -1f, Camera.main.transform.position.z),0.5f));
             MurosManager.instance.IsWallping = true;
             MurosManager.instance.IsHolding = false;
             //print(holdTimer);
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     void StopWallping()
     {
+        StartCoroutine(MoveToPosition(Camera.main.gameObject,new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z),0.5f));
         print("stop wallping");
         MurosManager.instance.IsWallping = false;
         GetComponent<SpriteRenderer>().color = Color.white;
@@ -63,5 +65,22 @@ public class PlayerController : MonoBehaviour
             print("gameover");
 
     }
+
+    private IEnumerator MoveToPosition(GameObject objectToMove, Vector3 newPosition, float waitTime) {
+        float elapsedTime = 0;
+        while (elapsedTime < waitTime)
+        {
+            objectToMove.transform.position = Vector3.Lerp(objectToMove.transform.position, newPosition, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+
+            // Yield here
+            yield return null;
+        }
+
+        // Make sure we got there
+        objectToMove.transform.position = newPosition;
+        yield return null;
+    }
+
 
 }
