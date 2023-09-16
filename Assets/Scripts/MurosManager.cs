@@ -15,11 +15,14 @@ public class MurosManager : MonoBehaviour
 
     [SerializeField]private bool isWallping = false;
     [SerializeField]private bool isHolding = false;
-    private float distanceToMove;
+
+
+    [SerializeField]private float gameSpeed = -0.01f;
 
     public bool IsWallping { get => isWallping; set => isWallping = value; }
     public bool IsHolding { get => isHolding; set => isHolding = value; }
     public float WallpingSpeed { get => wallpingSpeed; set => wallpingSpeed = value; }
+    public float GameSpeed { get => gameSpeed; set => gameSpeed = value; }
 
     private void Awake()
     {
@@ -28,7 +31,6 @@ public class MurosManager : MonoBehaviour
 
     private void Start()
     {
-        distanceToMove = -0.02f;
     }
 
 
