@@ -82,23 +82,39 @@ public class PlayerController : MonoBehaviour
                     // finger was already down and has moved
                     break;
                 case TouchPhase.Stationary:
-
-
-                    // finger was already down and hasnt moved
-                    if (!MurosManager.instance.IsWallping)
+                    float screenWidth = Screen.width;
+                    if (firstTouch.position.x >= 0 && firstTouch.position.x < screenWidth * 0.1f)
                     {
-                        holdTimer += Time.deltaTime;
-
-
-
-                        var tVibrationForce = Mathf.InverseLerp(0f, timeToReachMaxVibrationForce, holdTimer);
-                        _currentVibrationForce = Mathf.Lerp(0f, maxVibrationForce, tVibrationForce);
-
-                        SetMaterialProperties();
-
-                        MurosManager.instance.IsHolding = true;
-
+                        MoveLeft();
                     }
+                    else if (firstTouch.position.x <= screenWidth && firstTouch.position.x >= screenWidth * 0.9f)
+                    {
+                        MoveRight();
+                    }
+                    else
+                    {
+                        // finger was already down and hasnt moved
+                        if (!MurosManager.instance.IsWallping)
+                        {
+                            holdTimer += Time.deltaTime;
+
+
+
+                            var tVibrationForce = Mathf.InverseLerp(0f, timeToReachMaxVibrationForce, holdTimer);
+                            _currentVibrationForce = Mathf.Lerp(0f, maxVibrationForce, tVibrationForce);
+
+                            SetMaterialProperties();
+
+                            MurosManager.instance.IsHolding = true;
+
+
+
+
+                        }
+                    }
+
+
+                    
                     break;
                 case TouchPhase.Canceled:
                     // touch was canceled by the system
