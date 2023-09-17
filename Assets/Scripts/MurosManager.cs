@@ -12,7 +12,7 @@ public class MurosManager : MonoBehaviour
     [SerializeField]private float timeBetweenWalls;
     [SerializeField] private float wallpingSpeed = 3;
 
-
+    public bool gameOver;
     [SerializeField]private bool isWallping = false;
     [SerializeField]private bool isHolding = false;
 
@@ -36,6 +36,8 @@ public class MurosManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gameOver) return;
+        
         if(!isHolding)timeCounter += 0.05f * (isWallping?WallpingSpeed:1f);
         if (timeCounter >= timeBetweenWalls)
         {

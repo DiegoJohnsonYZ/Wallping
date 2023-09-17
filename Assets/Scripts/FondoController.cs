@@ -12,6 +12,8 @@ public class FondoController : MonoBehaviour
     }
     void Update()
     {
+        if (MurosManager.instance.gameOver) return;
+        
         if (MurosManager.instance.IsHolding) distanceToMove = 0;
         else distanceToMove = MurosManager.instance.GameSpeed;
         if (MurosManager.instance.IsWallping) distanceToMove = MurosManager.instance.GameSpeed * MurosManager.instance.WallpingSpeed;
