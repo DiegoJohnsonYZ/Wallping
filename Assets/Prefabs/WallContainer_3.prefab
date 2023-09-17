@@ -131,21 +131,5 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1490446712, guid: 6e3b57b8d918491429fe7023ed4079aa, type: 3}
-    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2647886
-      objectReference: {fileID: 0}
-    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.81583995
-      objectReference: {fileID: 0}
-    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0099
-      objectReference: {fileID: 0}
-    - target: {fileID: 8236265009445605823, guid: cfd858f79af492549b581644b6965b36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0198
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd858f79af492549b581644b6965b36, type: 3}
