@@ -18,6 +18,7 @@ public class WallController : MonoBehaviour
     {
         ResizeSpriteToScreen(transform.GetChild(0).gameObject);
         ResizeSpriteToScreen(transform.GetChild(1).gameObject);
+        Destroy(this.gameObject, 10f);
     }
 
     private void Setup()
@@ -57,4 +58,6 @@ public class WallController : MonoBehaviour
 
         obj.transform.localScale = new Vector3(newScale, newScale, 0);
     }
+
+   
 }

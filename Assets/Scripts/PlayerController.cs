@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private readonly int _velocityProp = Shader.PropertyToID("_Velocity");
     private readonly int _vibrationForceProp = Shader.PropertyToID("_VibrationForce");
 
+    float worldWidth;
+
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
@@ -33,6 +35,11 @@ public class PlayerController : MonoBehaviour
     {
         holdTimer = 0;
         SetMaterialProperties();
+        float aspect = (float)Screen.width / Screen.height;
+
+        float worldHeight = Camera.main.orthographicSize * 2;
+
+        worldWidth = worldHeight * aspect;
     }
 
     // Update is called once per frame
@@ -254,11 +261,13 @@ public class PlayerController : MonoBehaviour
     public void MoveLeft()
     {
         transform.position += new Vector3(-0.04f*Time.deltaTime*60, 0, 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 - (worldWidth * 0.3f), 0 + (worldWidth * 0.3f)), transform.position.y, transform.position.z);
     }
 
     public void MoveRight()
     {
         transform.position += new Vector3(0.04f * Time.deltaTime * 60, 0, 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 - (worldWidth*0.3f), 0+(worldWidth*0.3f)), transform.position.y, transform.position.z);
     }
 
 
