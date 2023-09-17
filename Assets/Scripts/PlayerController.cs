@@ -42,47 +42,87 @@ public class PlayerController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch firstTouch = Input.GetTouch(0);
-            switch (firstTouch.phase)
+            float screenWidth = Screen.width;
+            if (firstTouch.position.x >= screenWidth * 0.1f && firstTouch.position.x <= screenWidth * 0.9f)
             {
-                case TouchPhase.Began:
-                    // finger was just put down
-                    if (!MurosManager.instance.IsWallping)
-                    {
-                        GetComponent<Animator>().SetTrigger("Jump");
-                        chargeParticles.Play();
-                        wallpingChargeSfx.Play();
-                        StartCoroutine(MoveToProjection(4.2f, 0.2f));
-                    }
+                switch (firstTouch.phase)
+                {
+                    case TouchPhase.Began:
+                        // finger was just put down
 
-                    break;
-                case TouchPhase.Ended:
-                    // finger was just removed
-                    StartCoroutine(MoveToProjection(5, 0.2f));
-                    GetComponent<Animator>().SetTrigger("StartJump");
-                    GetComponent<Animator>().ResetTrigger("StartJump");
-                    StartCoroutine(MoveToPosition(Camera.main.gameObject, new Vector3(Camera.main.transform.position.x, -1f, Camera.main.transform.position.z), 0.2f));
+                        if (!MurosManager.instance.IsWallping)
+                        {
+                            GetComponent<Animator>().SetTrigger("Jump");
+                            chargeParticles.Play();
+                            wallpingChargeSfx.Play();
+                            StartCoroutine(MoveToProjection(4.2f, 0.2f));
+                        }
 
-                    MurosManager.instance.IsWallping = true;
-                    MurosManager.instance.IsHolding = false;
-                    //print(holdTimer);
 
-                    _renderer.color = Color.cyan;
-                    Invoke("StopWallping", holdTimer * 0.4f);
-                    holdTimer = 0;
-                    _currentVibrationForce = 0f;
 
-                    chargeParticles.Stop();
-                    explosionParticles.Play();
-                    trespassingWallSfx.Play();
-                    wallpingChargeSfx.Stop();
 
-                    SetMaterialProperties();
-                    break;
-                case TouchPhase.Moved:
-                    // finger was already down and has moved
-                    break;
-                case TouchPhase.Stationary:
-                    float screenWidth = Screen.width;
+                        break;
+                    case TouchPhase.Ended:
+                        // finger was just removed
+                        StartCoroutine(MoveToProjection(5, 0.2f));
+                        GetComponent<Animator>().SetTrigger("StartJump");
+                        GetComponent<Animator>().ResetTrigger("StartJump");
+                        StartCoroutine(MoveToPosition(Camera.main.gameObject, new Vector3(Camera.main.transform.position.x, -1f, Camera.main.transform.position.z), 0.2f));
+
+                        MurosManager.instance.IsWallping = true;
+                        MurosManager.instance.IsHolding = false;
+                        //print(holdTimer);
+
+                        _renderer.color = Color.cyan;
+                        Invoke("StopWallping", holdTimer * 0.4f);
+                        holdTimer = 0;
+                        _currentVibrationForce = 0f;
+
+                        chargeParticles.Stop();
+                        explosionParticles.Play();
+                        trespassingWallSfx.Play();
+                        wallpingChargeSfx.Stop();
+
+                        SetMaterialProperties();
+                        break;
+                    case TouchPhase.Moved:
+                        // finger was already down and has moved
+                        break;
+                    case TouchPhase.Stationary:
+                        float sW = Screen.width;
+                        
+                            // finger was already down and hasnt moved
+                            if (!MurosManager.instance.IsWallping)
+                            {
+                                holdTimer += Time.deltaTime;
+
+
+
+                                var tVibrationForce = Mathf.InverseLerp(0f, timeToReachMaxVibrationForce, holdTimer);
+                                _currentVibrationForce = Mathf.Lerp(0f, maxVibrationForce, tVibrationForce);
+
+                                SetMaterialProperties();
+
+                                MurosManager.instance.IsHolding = true;
+
+
+
+
+                            }
+                        
+
+
+
+                        break;
+                    case TouchPhase.Canceled:
+                        // touch was canceled by the system
+                        break;
+                }
+            }
+            else
+            {
+                if(firstTouch.phase == TouchPhase.Stationary)
+                {
                     if (firstTouch.position.x >= 0 && firstTouch.position.x < screenWidth * 0.1f)
                     {
                         MoveLeft();
@@ -91,34 +131,7 @@ public class PlayerController : MonoBehaviour
                     {
                         MoveRight();
                     }
-                    else
-                    {
-                        // finger was already down and hasnt moved
-                        if (!MurosManager.instance.IsWallping)
-                        {
-                            holdTimer += Time.deltaTime;
-
-
-
-                            var tVibrationForce = Mathf.InverseLerp(0f, timeToReachMaxVibrationForce, holdTimer);
-                            _currentVibrationForce = Mathf.Lerp(0f, maxVibrationForce, tVibrationForce);
-
-                            SetMaterialProperties();
-
-                            MurosManager.instance.IsHolding = true;
-
-
-
-
-                        }
-                    }
-
-
-                    
-                    break;
-                case TouchPhase.Canceled:
-                    // touch was canceled by the system
-                    break;
+                }
             }
 
         }
