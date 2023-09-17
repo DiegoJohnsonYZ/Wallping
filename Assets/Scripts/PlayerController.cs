@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float timeToReachMaxVibrationForce = 2f;
     [SerializeField] private ParticleSystem chargeParticles;
     [SerializeField] private ParticleSystem explosionParticles;
+    [SerializeField] private AudioSource wallpingChargeSfx;
 
     private float _currentVibrationForce;
     private float holdTimer;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !MurosManager.instance.IsWallping)
         {
             chargeParticles.Play();
+            wallpingChargeSfx.Play();
         }
         
         if (Input.GetKey(KeyCode.Space) && !MurosManager.instance.IsWallping)
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
             
             chargeParticles.Stop();
             explosionParticles.Play();
+            wallpingChargeSfx.Stop();
             
             SetMaterialProperties();
         }
