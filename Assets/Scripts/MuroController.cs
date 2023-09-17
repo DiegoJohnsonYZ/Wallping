@@ -10,7 +10,7 @@ public class MuroController : MonoBehaviour
     {
         ResizeSpriteToScreen();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (MurosManager.instance.IsHolding) distanceToMove = 0;
         else distanceToMove = MurosManager.instance.GameSpeed;
