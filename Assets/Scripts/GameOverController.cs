@@ -1,14 +1,28 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
+
+    public TMP_Text scoreFinal;
+
+    private void Start()
+    {
+        scoreFinal.text = PlayerPrefs.GetInt("score").ToString();
+    }
     void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        if (Input.touchCount > 0)
+        {
+            Touch firstTouch = Input.GetTouch(0);
+            if (firstTouch.phase == TouchPhase.Began)
+            {
 
-        StartCoroutine(LoadGameScene());
+                StartCoroutine(LoadGameScene());
+            }
+        }
     }
 
     private IEnumerator LoadGameScene()

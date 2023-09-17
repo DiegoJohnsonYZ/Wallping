@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             Touch firstTouch = Input.GetTouch(0);
             float screenWidth = Screen.width;
-            if (firstTouch.position.x >= screenWidth * 0.1f && firstTouch.position.x <= screenWidth * 0.9f)
+            if (firstTouch.position.x >= screenWidth * 0.2f && firstTouch.position.x <= screenWidth * 0.8f)
             {
                 switch (firstTouch.phase)
                 {
