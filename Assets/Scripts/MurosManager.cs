@@ -16,6 +16,8 @@ public class MurosManager : MonoBehaviour
     [SerializeField]private bool isWallping = false;
     [SerializeField]private bool isHolding = false;
 
+    public float OrtographicSize = 5;
+
 
     [SerializeField]private float gameSpeed = -0.01f;
 

@@ -14,6 +14,12 @@ public class WallController : MonoBehaviour
         Setup();
     }
 
+    private void Start()
+    {
+        ResizeSpriteToScreen(transform.GetChild(0).gameObject);
+        ResizeSpriteToScreen(transform.GetChild(1).gameObject);
+    }
+
     private void Setup()
     {
         if (!wallMask || !shadowMask) return;
@@ -32,5 +38,22 @@ public class WallController : MonoBehaviour
         else distanceToMove = MurosManager.instance.GameSpeed;
         if (MurosManager.instance.IsWallping) distanceToMove = MurosManager.instance.GameSpeed * MurosManager.instance.WallpingSpeed;
         transform.position += new Vector3(0, distanceToMove, 0);
+    }
+
+    public void ResizeSpriteToScreen(GameObject obj)
+    {
+        var sr = obj.GetComponent<SpriteRenderer>();
+
+        transform.localScale = new Vector3(1, 1, 1);
+
+        float width = sr.sprite.bounds.size.x;
+        print(width);
+        float height = sr.sprite.bounds.size.y;
+
+        float worldScreenHeight = MurosManager.instance.OrtographicSize * 2;
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+        float newScale = ((worldScreenWidth / width) / sr.size.x)*0.82f;
+
+        obj.transform.localScale = new Vector3(newScale, newScale, 0);
     }
 }

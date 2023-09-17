@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260343332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 29.3, z: 0}
+  m_LocalPosition: {x: 0, y: 15.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,13 +180,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4171704290150385060, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290150385060, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290150385060, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 35.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290150385061, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.38
+      objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014756, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: chargeParticles
       value: 
       objectReference: {fileID: 1470092055}
     - target: {fileID: 4171704290549014756, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: maxVibrationForce
-      value: 0.023
+      value: 0.046
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014756, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: explosionParticles
@@ -194,23 +210,23 @@ PrefabInstance:
       objectReference: {fileID: 532396818}
     - target: {fileID: 4171704290549014756, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: timeToReachMaxVibrationForce
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014758, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_Size.x
-      value: 3.0613596
+      value: 3.0388434
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014758, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_Size.y
-      value: 2.0067108
+      value: 3.8980699
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014758, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_Offset.x
-      value: -0.023969293
+      value: -0.2603892
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014758, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_Offset.y
-      value: -0.07190764
+      value: -0.34210205
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014758, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
@@ -242,11 +258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014777, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014777, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014777, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014777, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 4171704290549014777, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -291,6 +307,18 @@ PrefabInstance:
     - target: {fileID: 4171704290549014779, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290758200017, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: m_Parameters.m_EndRange
+      value: 7.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290758200030, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171704290758200030, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc0d0e1440aa25943afc5e6d0da2380e, type: 3}
@@ -469,10 +497,11 @@ MonoBehaviour:
   - {fileID: 5930142947648810700, guid: c665a590810b17e408dd4f2dc78f8d16, type: 3}
   - {fileID: 3109644754010188470, guid: cfd858f79af492549b581644b6965b36, type: 3}
   timeCounter: 0
-  timeBetweenWalls: 10
+  timeBetweenWalls: 3
   wallpingSpeed: 7
   isWallping: 0
   isHolding: 0
+  OrtographicSize: 5
   gameSpeed: -0.04
 --- !u!198 &532396818 stripped
 ParticleSystem:
