@@ -13,7 +13,7 @@ public class GameOverController : MonoBehaviour
 
     private IEnumerator LoadGameScene()
     {
-        var asyncOperation = SceneManager.LoadSceneAsync("Test_SampleScene");
+        var asyncOperation = SceneManager.LoadSceneAsync("MainGame");
         asyncOperation.allowSceneActivation = false;
 
         while (asyncOperation.progress < 0.9f)
